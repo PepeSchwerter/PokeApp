@@ -8,5 +8,5 @@ export const elements = {
 export const capitalizeFirstLetter = word => word.replace(/^\w/, c => c.toUpperCase());
 
 export const renderLoader = parent => {
-    const loader = `loader`;
+    const loader = `real_loader_gif`;
 }
