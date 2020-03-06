@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+//Colors
+$main_grey: rgb(224, 224, 224);
+$font_grey: rgb(94, 94, 94);
+$main_blue: #2F80ED;
+
+//-----Type Colors------
+$type_colors: (
+    normal:  #a6a676,
+    fighting:#c03028,
+    flying:  #8a76c5,
+    poison:  #9c409c,
+    ground:  #a78f4f,
+    rock:    #b8a038,
+    bug:     #a8b820,
+    ghost:   #6b5492,
+    steel:   #b8b8d0,
+    fire:    #f08030,
+    water:   #6890f0,
+    grass:   #73bf4d,
+    electric:#f8d030,
+    psychic: #f75887,
+    ice:     #98d8d8,
+    dark:    #705848,
+    fairy:   #ff65d5,
+    dragon:  #5930bd
+);
+//----------------------
+
+//Font
+$default-font-size: 1.6rem;
+
+html {
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+    //footer (IDK)
+    position: relative;
+    min-height: 100%;
+}
+
+//Selected text bg color
+
+::selection {
+    background: $main_blue;
+    color:white;
+}
+
+::-moz-selection {
+    background: $main_blue;
+    color:white
+}
+
+//-----------------------
+
+body {
+    box-sizing: border-box;
+
+    //Main Font
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $font_grey;
+
+    background: #56CCF2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+p {
+    font-size: $default-font-size;
+}
+
+.main-container {
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    max-width: 100rem;
+    border-radius: 1rem;
+    min-height: 50rem;
+    overflow: hidden;
+
+    //box shadow
+    -webkit-box-shadow: 0px 14px 46px -2px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 14px 46px -2px rgba(0,0,0,0.4);
+    box-shadow: 0px 14px 46px -2px rgba(0,0,0,0.4);
+
+    // &:hover {
+    //     transform: translateY(-1.5rem);
+
+    //     -webkit-box-shadow: 0px 14px 55px 20px rgba(0,0,0,0.33);
+    //     -moz-box-shadow: 0px 14px 55px 20px rgba(0,0,0,0.33);
+    //     box-shadow: 0px 14px 55px 20px rgba(0,0,0,0.33);
+
+    //     transition: all 0.3s;
+    // } 
+}
+
+.nav {
+    &__list {
+        display: flex;
+        padding: 2rem;
+        justify-content: space-around;
+        list-style: none;
+        text-align: center;
+        background-color: $main_grey;
+
+        -webkit-box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.21);
+        -moz-box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.21);
+        box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.21);
+    }
+    &__logo {
+        margin-left: 3rem;
+        max-width: 12rem;
+    }
+
+    &__item{
+        display: flex;
+        width: 33.3333%;
+    }
+
+}
+
+.search {
+
+    display: flex;
+    align-items: center;
+    //justify-content: center;
+
+    &__input{
+        font-family: inherit;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 100px;
+        display: inline-block;
+        width: 100%;
+        color: $font_grey;
+        transition: all 0.2s;
+    
+        &::placeholder,
+        &::-webkit-input-placeholder{
+            color: rgb(170, 170, 170);
+        }
+
+        &:focus {
+            outline:none;
+            box-shadow: 0 0 0 2px $main_blue;
+            transition: all 0.2s;
+        }
+    }
+
+    &__input:focus + &__button {
+        animation: popTwice 0.8s ease-out;
+    }
+
+    &__button {
+        border: none;
+        background-color: white;
+        margin-left: -5rem;
+        transition: all 0.2s;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+        fill:  rgb(170, 170, 170);
+    }
+}
+
+.info-container {
+    display: flex;
+    width: 100%;
+    padding: 3rem;
+    min-height: 50rem;
+}
+
+.pokemon-container {
+    width: 66%;
+}
+
+.my-team {
+    background-color: $main_grey;
+    padding: 2rem;
+    border-radius: 1rem;
+
+    -webkit-box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.21);
+    box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.21);
+
+    width: 33%;
+    margin-right: 6rem;
+}
+
+.pokemon {
+    background-color: $main_grey;
+    padding: 2rem;
+    border-radius: 1rem;
+
+    -webkit-box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.21);
+    box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.21);
+    
+    width: 100%;
+
+    &__image {
+        width: 70%;
+        padding: 1rem;
+        display:block;
+        margin: 0 auto;
+    }
+}
+
+.title {
+    display: flex;
+    align-items: center;
+
+    font-size: 1.8rem;
+    border-bottom: 2px solid $main_blue;
+    margin-bottom: 1rem;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem;
+    color: white;
+    font-size: $default-font-size;
+    text-align: right;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.u-ml-s {
+    margin-left: 1rem;
+}
+
+.type__icon {
+    display: inline-block;
+    color: white;
+    font-size: 1rem;
+    padding: 0.2rem 1.2rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+
+    //Loop over each color to create the class and the respcetive bg
+    @each $type, $color in $type_colors {
+        &--#{$type} {
+            background-color: $color; 
+            border: 1px solid darken($color, 15%);
+            border-bottom: 2px solid darken($color, 15%);
+        }
+    }  
+}
+
+
+//----ANIMATIONS----
+
+@keyframes popTwice {
+    25% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
