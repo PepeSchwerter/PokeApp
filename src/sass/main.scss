@@ -274,6 +274,14 @@ p {
     }  
 }
 
+.loader {
+    padding: 4rem;
+
+    svg {
+        color: $main_blue;
+        width: 10rem
+    }
+}
 
 //----ANIMATIONS----
 

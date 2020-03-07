@@ -1,7 +1,13 @@
 import {elements, capitalizeFirstLetter} from './base';
 
+export const getInput = () => elements.searchInput.value.toLowerCase();
+
+export const clearInput = () => {
+    elements.searchInput.value = '';
+};
+
 export const renderPokemon = pokemon => {
-    let type_spans;
+    let type_spans = '';
     pokemon.types.forEach(t => {
         type_spans += `<span class="type__icon type__icon--${t.type.name} u-ml-s">${t.type.name}</span>`
     });

@@ -1,10 +1,9 @@
 /* css */
 "use strict"
 import '../sass/main.scss';
-import Search from './models/Search';
-import * as searchView from './views/searchView';
+import Pokemon from './models/Pokemon';
 import * as pokemonView from './views/pokemonView';
-import {elements} from './views/base';
+import {elements, renderLoader, clearLoader} from './views/base';
 
 //https://pokeres.bastionbot.org/images/pokemon/132.png -- IMAGE
 //https://pokeapi.co/api/v2/pokemon/pikachu -- POKEMON
@@ -15,14 +14,16 @@ const state = {
 };
 
 const controlSearch = async () => {
-    const query = searchView.getInput();
+    const query = pokemonView.getInput();
 
     if(query){
-        state.search = new Search(query);
-        searchView.clearInput();
-        await state.search.getResults();
+        state.pokemonSearch = new Pokemon(query);
+        pokemonView.clearInput();
         pokemonView.clearPokemon();
-        pokemonView.renderPokemon(state.search.result);
+        renderLoader(elements.pokemonContainer);
+        await state.pokemonSearch.getResults();
+        clearLoader();
+        pokemonView.renderPokemon(state.pokemonSearch);
     }
 };
 
